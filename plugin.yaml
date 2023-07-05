@@ -1,0 +1,15 @@
+plugin:
+    name: 'Model History'
+    description: 'Model History Plugin'
+    author: Thanh Vo
+    icon: oc-icon-history
+    homepage: ''
+navigation:
+    thanhvo-history:
+        label: 'History'
+        url: thanhvo/history/history
+        icon: icon-calculator
+permissions:
+    entity-history:
+        tab: 'Model History'
+        label: 'Model History'
