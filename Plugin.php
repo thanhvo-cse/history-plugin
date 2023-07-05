@@ -71,4 +71,12 @@ class Plugin extends PluginBase
     {
         return []; // Remove this line to activate
     }
+
+    /**
+     * registerPageSnippets used by the backend.
+     */
+    public function registerPageSnippets()
+    {
+        return []; // Remove this line to activate
+    }
 }
