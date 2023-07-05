@@ -1,5 +1,5 @@
 {
-    "name": "thanhvo-cse/history-plugin",
+    "name": "thanhvo/history-plugin",
     "type": "october-plugin",
     "description": "Model history for OctoberCMS",
     "license": "MIT",
