@@ -1,8 +1,8 @@
 <?php
 
-namespace ThanhVo\History\Behaviors;
+namespace ThanhVoCSE\History\Behaviors;
 
-use ThanhVo\History\Models\HistoryRecord;
+use ThanhVoCSE\History\Models\HistoryRecord;
 use October\Rain\Extension\ExtensionBase;
 use BackendAuth;
 

@@ -9,11 +9,6 @@
             "email": "thanhvo.cse@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "ThanhVo\\History\\": "./"
-        }
-    },
     "require": {
         "php": ">=8.0.2",
         "october/rain": ">=3.1",

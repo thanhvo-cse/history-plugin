@@ -15,4 +15,4 @@ columns:
     data:
         label: Changes
         type: partial
-        path: $/thanhvo/history/models/historyrecord/_data_field.htm
+        path: $/thanhvocse/history/models/historyrecord/_data_field.htm

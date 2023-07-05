@@ -1,4 +1,4 @@
-<?php namespace ThanhVo\History\Models;
+<?php namespace ThanhVoCSE\History\Models;
 
 use Model;
 
