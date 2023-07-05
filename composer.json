@@ -1,5 +1,5 @@
 {
-    "name": "thanhvo-cse/history-plugin",
+    "name": "thanhvocse/history-plugin",
     "type": "october-plugin",
     "description": "Model history for OctoberCMS",
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=8.0.2",
-        "october/rain": ">=3.1",
+        "october/rain": "^3.3",
         "composer/installers": "~1.0"
     },
     "minimum-stability": "dev"
