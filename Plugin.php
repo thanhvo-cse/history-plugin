@@ -1,7 +1,7 @@
-<?php namespace ThanhVo\History;
+<?php namespace ThanhVoCSE\History;
 
 use Backend;
-use ThanhVo\History\Behaviors\HistoryModel;
+use ThanhVoCSE\History\Behaviors\HistoryModel;
 use System\Classes\PluginBase;
 use Event;
 
@@ -20,7 +20,7 @@ class Plugin extends PluginBase
         return [
             'name' => 'History',
             'description' => 'No description provided yet...',
-            'author' => 'ThanhVo',
+            'author' => 'ThanhVoCSE',
             'icon' => 'icon-leaf'
         ];
     }

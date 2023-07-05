@@ -1,5 +1,5 @@
 {
-    "name": "thanhvo/history-plugin",
+    "name": "thanhvo-cse/history-plugin",
     "type": "october-plugin",
     "description": "Model history for OctoberCMS",
     "license": "MIT",
@@ -9,6 +9,11 @@
             "email": "thanhvo.cse@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "ThanhVoCSE\\History\\": "./"
+        }
+    },
     "require": {
         "php": ">=8.0.2",
         "october/rain": ">=3.1",
