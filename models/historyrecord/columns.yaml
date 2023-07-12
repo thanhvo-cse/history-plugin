@@ -1,0 +1,18 @@
+columns:
+    revision:
+        label: Revision
+        type: number
+        width: 10%
+    user:
+        label: User
+        type: text
+        select: 'CONCAT(user_last_name, " ", user_first_name)'
+        width: 10%
+    updated_at:
+        label: Time
+        type: datetime
+        width: 20%
+    data:
+        label: Changes
+        type: partial
+        path: $/thanhvocse/history/models/historyrecord/_data_field.htm

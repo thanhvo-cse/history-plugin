@@ -1,0 +1,17 @@
+{
+    "name": "thanhvocse/history-plugin",
+    "type": "october-plugin",
+    "description": "Model history for OctoberCMS",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thanh Vo",
+            "email": "thanhvo.cse@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "composer/installers": "~1.0"
+    },
+    "minimum-stability": "dev"
+}
