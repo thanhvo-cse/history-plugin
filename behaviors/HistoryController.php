@@ -51,7 +51,9 @@ class HistoryController extends ControllerBehavior
      */
     public function update_onSave($recordId = null, $context = null)
     {
-        $this->controller->asExtension(FormController::class)->update_onSave($recordId, $context);
+        if ($redirect = $this->controller->asExtension(FormController::class)->update_onSave($recordId, $context)) {
+            return $redirect;
+        }
 
         return $this->controller->relationRefresh('histories');
     }
