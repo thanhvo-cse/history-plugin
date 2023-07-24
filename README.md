@@ -8,8 +8,12 @@ Every updates on a model could be tracked as revisions, with user, time and chan
 
 ### Installation
 
-To install using October CMS v3.1 or above:
+To install using October CMS v1.1 or above:
 
+```
+php artisan plugin:install ThanhVoCSE.History --from=git@github.com:thanhvo-cse/history-plugin.git
+```
+Or
 ```
 composer require thanhvocse/history-plugin
 php artisan october:migrate
@@ -35,7 +39,7 @@ class TestReport extends Controller
 }
 ```
 
-Then define the history relation. The histories relation config below is optional only when you want to customize it.
+Then define the histories relation. The histories relation config below is optional only when you want to customize it.
 
 ```yaml
 # config_relation.yaml
@@ -45,7 +49,6 @@ histories:
         defaultSort:
             - column: version
             - direction: desc
-    readOnly: true
 ```
 
 ## Displaying a Relation Manager
