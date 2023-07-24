@@ -48,7 +48,7 @@ class Plugin extends PluginBase
                     && $controller->isClassExtendedWith(HistoryController::class)) {
                     $model->extendClassWith(HistoryModel::class);
                     $model->addDynamicMethod('getHistoryLabel', function ($fieldName) use ($model, $form) {
-                        return $form->getField($fieldName)->label;
+                        return $form->getField($fieldName)->label ?? '';
                     });
                 }
             }
@@ -68,7 +68,18 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
+        return [
+            'thanhvocse.history.access' => [
+                'label' => 'Access model history records',
+                'tab' => 'Model History',
+                'order' => 100,
+            ],
+            'thanhvocse.history.configure' => [
+                'label' => 'Configure model history function',
+                'tab' => 'Model History',
+                'order' => 200,
+            ],
+        ];
     }
 
     /**
@@ -85,5 +96,19 @@ class Plugin extends PluginBase
     public function registerPageSnippets()
     {
         return []; // Remove this line to activate
+    }
+
+    public function registerSettings()
+    {
+        return [
+            'settings' => [
+                'label' => 'Model History Settings',
+                'description' => 'Manage model history settings.',
+                'category'    => \System\Classes\SettingsManager::CATEGORY_BACKEND,
+                'icon' => 'icon-history',
+                'class' => \ThanhVoCSE\History\Models\HistorySetting::class,
+                'permissions' => ['thanhvocse.history.configure']
+            ]
+        ];
     }
 }

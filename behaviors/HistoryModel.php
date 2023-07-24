@@ -3,6 +3,7 @@
 namespace ThanhVoCSE\History\Behaviors;
 
 use ThanhVoCSE\History\Models\HistoryRecord;
+use ThanhVoCSE\History\Models\HistorySetting;
 use October\Rain\Extension\ExtensionBase;
 use BackendAuth;
 
@@ -39,6 +40,15 @@ class HistoryModel extends ExtensionBase
                 $historyRecord->user_first_name = $user->first_name;
                 $historyRecord->user_last_name = $user->last_name;
                 $historyRecord->save();
+
+                // Rotate history records
+                $rotation = HistorySetting::get('history_rotation', 0);
+                if ($rotation > 0) {
+                    HistoryRecord::where('entity', $entity)
+                        ->where('entity_id', $entityId)
+                        ->where('revision', '<=', $revision - $rotation)
+                        ->delete();
+                }
             }
         });
     }

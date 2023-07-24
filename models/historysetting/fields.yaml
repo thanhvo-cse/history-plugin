@@ -1,0 +1,6 @@
+fields:
+    history_rotation:
+        label: History Rotation
+        type: number
+        span: left
+        default: 10

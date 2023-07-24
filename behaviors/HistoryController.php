@@ -41,6 +41,11 @@ class HistoryController extends ControllerBehavior
                     ],
                 ],
                 $historiesConfig);
+
+            if (!BackendAuth::getUser()->hasAccess('thanhvocse.history.access')) {
+                $relation->config->histories['view']['conditions'] = '1 = 2';
+                $relation->config->histories['view']['noRecordsMessage'] = 'No permission to access history records.';
+            }
         }
     }
 
