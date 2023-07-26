@@ -1,6 +1,6 @@
 <?php foreach ($value as $key => $record): ?>
     <h6><?= $formModel->getHistoryLabel($key) ?></h6>
-    <p style="background-color:red;color:white;"><s><?= $record[0] ?></s></p>
     <p style="background-color:blue;color:white;"><?= $record[1] ?></p>
+    <p style="background-color:red;color:white;"><s><?= $record[0] ?></s></p>
     <hr>
 <?php endforeach ?>

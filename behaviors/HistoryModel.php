@@ -63,10 +63,18 @@ class HistoryModel extends ExtensionBase
         $changes = $this->model->getChanges();
         unset($changes['updated_at']);
 
-        foreach ($changes as $key => $value) {
+        foreach ($changes as $key => $newValue) {
+            $origin = $this->model->getOriginal($key);
+
+            // Adjust float numbers comparison
+            $attribute = $this->model->getAttribute($key);
+            if (is_float($attribute) && bccomp($origin, $newValue, 3) == 0) {
+                break;
+            }
+
             $result[$key] = [
-                $this->model->getOptionLabel($key, $this->model->getOriginal($key)),
-                $this->model->getOptionLabel($key, $value),
+                $this->model->getOptionLabel($key, $origin),
+                $this->model->getOptionLabel($key, $newValue),
             ];
         }
 
