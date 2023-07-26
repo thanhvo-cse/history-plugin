@@ -6,6 +6,7 @@ use ThanhVoCSE\History\Models\HistoryRecord;
 use ThanhVoCSE\History\Models\HistorySetting;
 use October\Rain\Extension\ExtensionBase;
 use BackendAuth;
+use Illuminate\Support\Str;
 
 class HistoryModel extends ExtensionBase
 {
@@ -64,8 +65,8 @@ class HistoryModel extends ExtensionBase
 
         foreach ($changes as $key => $value) {
             $result[$key] = [
-                $this->model->getOriginal($key),
-                $value,
+                $this->model->getOptionLabel($key, $this->model->getOriginal($key)),
+                $this->model->getOptionLabel($key, $value),
             ];
         }
 

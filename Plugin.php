@@ -2,6 +2,7 @@
 
 use Backend;
 use Backend\Behaviors\RelationController;
+use Illuminate\Support\Str;
 use ThanhVoCSE\History\Behaviors\HistoryController;
 use ThanhVoCSE\History\Behaviors\HistoryModel;
 use System\Classes\PluginBase;
@@ -21,7 +22,7 @@ class Plugin extends PluginBase
     {
         return [
             'name' => 'History',
-            'description' => 'No description provided yet...',
+            'description' => 'Model history for OctoberCMS',
             'author' => 'ThanhVoCSE',
             'icon' => 'icon-leaf'
         ];
@@ -47,8 +48,18 @@ class Plugin extends PluginBase
                 if ($controller->isClassExtendedWith(RelationController::class)
                     && $controller->isClassExtendedWith(HistoryController::class)) {
                     $model->extendClassWith(HistoryModel::class);
+
+                    $options = [];
+                    foreach ($form->getFields() as $key => $field) {
+                        $options[$key] = $field->options();
+                    }
+
+                    $model->addDynamicMethod('getOptionLabel', function ($fieldName, $value) use ($options) {
+                        return $options[$fieldName][$value] ?? $value;
+                    });
+
                     $model->addDynamicMethod('getHistoryLabel', function ($fieldName) use ($model, $form) {
-                        return $form->getField($fieldName)->label ?? '';
+                        return $form->getField($fieldName)->label ?? $fieldName;
                     });
                 }
             }
