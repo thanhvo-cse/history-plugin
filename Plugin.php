@@ -55,11 +55,11 @@ class Plugin extends PluginBase
                     }
 
                     $model->addDynamicMethod('getOptionLabel', function ($fieldName, $value) use ($options) {
-                        return $options[$fieldName][$value] ?? $value;
+                        return __($options[$fieldName][$value] ?? $value);
                     });
 
                     $model->addDynamicMethod('getHistoryLabel', function ($fieldName) use ($model, $form) {
-                        return $form->getField($fieldName)->label ?? $fieldName;
+                        return __($form->getField($fieldName)->label ?? $fieldName);
                     });
                 }
             }

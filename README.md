@@ -1,17 +1,13 @@
-# History Plugin
+# Model History Plugin
+- Add revision history to October CMS backend.
+- Every updates on a model could be tracked as revisions, with user, time and changes in detail.
 
-Add history to models.
+# Requirements
+- October CMS 1.0 or above
 
-## Add history
-
-Every updates on a model could be tracked as revisions, with user, time and changes in detail.
-
-### Installation
-
-To install using October CMS v1.1 or above:
-
+## Installation Instructions
 ```
-php artisan plugin:install ThanhVoCSE.History --from=git@github.com:thanhvo-cse/history-plugin.git
+php artisan plugin:install ThanhVoCSE.History
 ```
 Or
 ```
@@ -20,11 +16,10 @@ php artisan october:migrate
 ```
 
 ## Controller Behavior
-
 Configuring the Relation Behavior and History Behavior
 
 ```php
-class TestReport extends Controller
+class Users extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,
@@ -59,3 +54,7 @@ The relation manager can then be displayed for a specified relation definition b
 
 <?= $this->relationRender('histories') ?>
 ```
+
+## Plugin Settings
+This plugin creates a Settings menu item, found by navigating to Settings > Backend > Model History Settings.
+- **History Rotation**: maximum number of revisions on a single model record, exceeding this number, the oldest revision will be deleted. Set it as 0 if you don't want to delete any old revisions.
