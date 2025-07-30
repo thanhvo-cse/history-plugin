@@ -47,7 +47,9 @@ class Plugin extends PluginBase
                 $controller = $form->getController();
                 if ($controller->isClassExtendedWith(RelationController::class)
                     && $controller->isClassExtendedWith(HistoryController::class)) {
-                    $model->extendClassWith(HistoryModel::class);
+                    if (! $model->isClassExtendedWith(HistoryModel::class)) {
+                        $model->extendClassWith(HistoryModel::class);
+                    }
 
                     $options = [];
                     foreach ($form->getFields() as $key => $field) {
